@@ -1,27 +1,44 @@
-import React, { FunctionComponent } from "react";
-import { Search } from "@trussworks/react-uswds";
+import React, { Fragment, FunctionComponent } from "react";
+import { Search, Table, Tag } from "@trussworks/react-uswds";
 import { useSearch } from "../../hooks";
+import { Page, SubHeader } from "../../common";
 
 export const SearchPage: FunctionComponent = () => {
   const { data, fetch, isLoading } = useSearch();
 
   return (
-    <div
-      style={{
-        height: "4rem",
-        width: "100%",
-        display: "flex",
-        alignItems: "center",
-        boxShadow:
-          "0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08)",
-      }}
-    >
-      <div style={{ margin: "16px" }}>logo</div>
-      <Search
-        onSubmit={({ target }) => {
-          console.log(target);
-        }}
-      />
-    </div>
+    <Fragment>
+      <SubHeader />
+
+      <Page>
+        <div>
+          <Search
+            onSubmit={({ target }) => {
+              console.log(target);
+            }}
+          />
+        </div>
+        <Table bordered={false} fullWidth>
+          <thead>
+            <td>Username</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Role</td>
+          </thead>
+          <tbody>
+            {data.map(({ username, firstName, lastName, role }) => (
+              <tr key={username}>
+                <td>{username}</td>
+                <td>{firstName}</td>
+                <td>{lastName}</td>
+                <td>
+                  <Tag>{role}</Tag>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </Page>
+    </Fragment>
   );
 };
