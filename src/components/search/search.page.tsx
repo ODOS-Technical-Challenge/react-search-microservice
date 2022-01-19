@@ -1,10 +1,20 @@
 import React, { Fragment, FunctionComponent } from "react";
-import { Search, Table, Tag } from "@trussworks/react-uswds";
 import { useSearch } from "../../hooks";
-import { Page, SubHeader } from "../../common";
+import { Page, SubHeader, Search, TdTag, VirtualTable } from "../../common";
+import { useNavigate, useSearchParams } from "react-router-dom";
+
+const menu = [
+  { title: "Username", path: "username" },
+  { title: "First Name", path: "firstName" },
+  { title: "Last Name", path: "lastName" },
+  { title: "Role", path: "role", render: TdTag },
+];
 
 export const SearchPage: FunctionComponent = () => {
   const { data, fetch, isLoading } = useSearch();
+  const [params] = useSearchParams();
+  const navigate = useNavigate();
+  const search = params.get("search");
 
   return (
     <Fragment>
@@ -13,31 +23,17 @@ export const SearchPage: FunctionComponent = () => {
       <Page>
         <div>
           <Search
-            onSubmit={({ target }) => {
-              console.log(target);
+            value={search || ""}
+            onClick={(value) => {
+              fetch(value);
+              navigate({
+                search: `?search=${value}`,
+              });
             }}
           />
         </div>
-        <Table bordered={false} fullWidth>
-          <thead>
-            <td>Username</td>
-            <td>First Name</td>
-            <td>Last Name</td>
-            <td>Role</td>
-          </thead>
-          <tbody>
-            {data.map(({ username, firstName, lastName, role }) => (
-              <tr key={username}>
-                <td>{username}</td>
-                <td>{firstName}</td>
-                <td>{lastName}</td>
-                <td>
-                  <Tag>{role}</Tag>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </Table>
+
+        <VirtualTable {...{ menu, isLoading, data }} />
       </Page>
     </Fragment>
   );
