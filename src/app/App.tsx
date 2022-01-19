@@ -1,15 +1,12 @@
 import React, { FunctionComponent } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { AppStore } from "../store/AppStore";
+import { AppStore, AuthStore } from "../store";
 import { Header } from "../common";
 import { ROUTES } from "../utils";
 
 import "./App.css";
 
-import { SearchPage } from "../components/search/search.page";
-import { RequireAuth } from "../components/auth/require-auth.component";
-import { LoginPage } from "../components/auth/login.page";
-import { AuthStore } from "../store/AuthStore";
+import { LoginPage, SearchPage, RequireAuth } from "../components";
 
 export const App: FunctionComponent = () => {
   return (
