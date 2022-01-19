@@ -7,6 +7,7 @@ export const useSearch = () => {
 
   const fetch = useCallback(async (query: string) => {
     setLoading(true);
+    console.log(query);
     // Mock call for now...
     const call = {
       data: [
