@@ -1,9 +1,9 @@
 import React from "react";
-import { fireEvent, getByText, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { LoginPage } from "./login.page";
 const mockedUsedNavigate = jest.fn();
 const mockedUsedLocation = jest.fn();
-let user: any = "test";
+const user: any = "test";
 
 jest.mock("react-router-dom", () => ({
   ...(jest.requireActual("react-router-dom") as any),

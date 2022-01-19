@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, getByText, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { AuthStatus } from "./auth-status.component";
 const mockedUsedNavigate = jest.fn();
 let user: any = "test";

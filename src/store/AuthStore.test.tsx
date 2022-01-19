@@ -1,11 +1,10 @@
-import React, { createContext, useContext } from "react";
-import { fireEvent, getByText, render, screen } from "@testing-library/react";
+import React, { createContext } from "react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { authProvider, AuthStore } from "./AuthStore";
 import { LoginPage } from "../components/auth/login.page";
 import { AuthStatus } from "../components/auth/auth-status.component";
 const mockedUsedNavigate = jest.fn();
 const mockedUsedLocation = jest.fn();
-let user: any = "test";
 
 jest.mock("react-router-dom", () => ({
   ...(jest.requireActual("react-router-dom") as any),
