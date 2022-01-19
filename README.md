@@ -2,7 +2,7 @@
 
 ## Dependencies
 - [Node.JS](https://nodejs.org/en/)
-- [USWDS UI Components](https://evergreen.segment.com)
+- [USWDS UI Components](https://designsystem.digital.gov/)
 - [RxJS Reactive Extensions](https://rxjs.dev)
 
 ##To install the application
