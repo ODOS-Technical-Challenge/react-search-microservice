@@ -23,7 +23,7 @@ export const AuthStore: FunctionComponent<Props> = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [user, setUser] = React.useState<any>({});
+  const [user, setUser] = React.useState<string>("");
 
   const signin = (newUser: string, callback: VoidFunction) => {
     return authProvider.signin(() => {
@@ -34,7 +34,7 @@ export const AuthStore: FunctionComponent<Props> = ({
 
   const signout = (callback: VoidFunction) => {
     return authProvider.signout(() => {
-      setUser({});
+      setUser("");
       callback();
     });
   };

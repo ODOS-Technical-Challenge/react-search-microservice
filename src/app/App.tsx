@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { AppStore } from "../store/AppStore";
 import "./App.css";
 
