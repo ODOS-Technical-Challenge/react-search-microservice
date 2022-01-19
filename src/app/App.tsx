@@ -25,8 +25,6 @@ export const App: FunctionComponent = () => {
                 </RequireAuth>
               }
             />
-            {/** Fallback Redirect / Default Page */}
-            <Navigate to={"/"} />
           </Routes>
         </AuthStore>
       </AppStore>

@@ -20,10 +20,12 @@ export const SearchPage: FunctionComponent = () => {
         </div>
         <Table bordered={false} fullWidth>
           <thead>
-            <td>Username</td>
-            <td>First Name</td>
-            <td>Last Name</td>
-            <td>Role</td>
+            <tr>
+              <th>Username</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Role</th>
+            </tr>
           </thead>
           <tbody>
             {data.map(({ username, firstName, lastName, role }) => (
