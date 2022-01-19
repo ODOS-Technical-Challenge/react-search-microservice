@@ -10,16 +10,13 @@ export const AuthStatus: FunctionComponent = () => {
     return <p>You are not logged in.</p>;
   }
 
+  const signOut = () => {
+    auth.signout(() => navigate("/"));
+  };
+
   return (
     <p>
-      Welcome {auth.user}!{" "}
-      <button
-        onClick={() => {
-          auth.signout(() => navigate("/"));
-        }}
-      >
-        Sign out
-      </button>
+      Welcome {auth.user}! <button onClick={signOut}>Sign out</button>
     </p>
   );
 };

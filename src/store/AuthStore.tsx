@@ -1,11 +1,12 @@
-import React, { Children, FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 import { AuthContext } from "./contexts";
 
 interface Props {
   children: React.ReactNode;
 }
 
-const authProvider = {
+export const authProvider = {
+  user: "",
   isAuthenticated: false,
   signin(callback: VoidFunction) {
     authProvider.isAuthenticated = true;

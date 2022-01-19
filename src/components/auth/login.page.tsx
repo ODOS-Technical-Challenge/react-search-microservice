@@ -12,13 +12,11 @@ export const LoginPage: FunctionComponent = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(event);
 
     const formData = new FormData(event.currentTarget);
     const username = formData.get("username") as string;
 
     auth.signin(username, () => {
-      console.log(username, from);
       navigate(from, { replace: true });
     });
   };
