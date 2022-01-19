@@ -5,15 +5,28 @@ import "./App.css";
 
 import { SearchPage } from "../components/search/search.page";
 import { Header } from "../common";
+import { RequireAuth } from "../components/auth/require-auth.component";
+import { LoginPage } from "../components/auth/login.page";
+import { AuthStore } from "../store/AuthStore";
 
 export const App: FunctionComponent = () => {
   return (
     <div className="App">
       <AppStore>
         <Header />
-        <Routes>
-          <Route path="/" element={<SearchPage />} />
-        </Routes>
+        <AuthStore>
+          <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route
+              path="/"
+              element={
+                <RequireAuth>
+                  <SearchPage />
+                </RequireAuth>
+              }
+            />
+          </Routes>
+        </AuthStore>
       </AppStore>
     </div>
   );
