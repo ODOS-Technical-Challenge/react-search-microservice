@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+
 import { App } from "./app/App";
 
 jest.mock("react-dom", () => ({ render: jest.fn() }));
@@ -16,7 +18,9 @@ describe("Application Root", () => {
 
     expect(render).toHaveBeenCalledWith(
       <React.StrictMode>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </React.StrictMode>,
       div
     );
