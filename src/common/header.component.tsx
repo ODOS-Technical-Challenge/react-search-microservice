@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent, ReactNode } from "react";
+import React, { Fragment, FunctionComponent } from "react";
 import { GovBanner } from "@trussworks/react-uswds";
 
 export const Header: FunctionComponent = () => {

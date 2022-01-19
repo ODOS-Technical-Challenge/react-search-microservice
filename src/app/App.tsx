@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { AppStore } from "../store/AppStore";
 import "./App.css";
 
@@ -11,8 +11,9 @@ export const App: FunctionComponent = () => {
     <div className="App">
       <AppStore>
         <Header />
-        <Routes></Routes>
-        <SearchPage />
+        <Routes>
+          <Route path="/" element={<SearchPage />} />
+        </Routes>
       </AppStore>
     </div>
   );
