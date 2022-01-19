@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { AppStore } from "../store/AppStore";
 import "./App.css";
 
@@ -13,6 +13,9 @@ export const App: FunctionComponent = () => {
         <Header />
         <Routes>
           <Route path="/" element={<SearchPage />} />
+
+          {/** Fallback Redirect / Default Page */}
+          <Navigate to={"/"} />
         </Routes>
       </AppStore>
     </div>
